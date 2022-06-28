@@ -65,3 +65,6 @@ C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_
 C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\obj\Debug\net5.0\ref\ProcessoSeletivo2RP_WebAPI.dll
 C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\obj\Debug\net5.0\ProcessoSeletivo2RP_WebAPI.pdb
 C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\obj\Debug\net5.0\ProcessoSeletivo2RP_WebAPI.genruntimeconfig.cache
+C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\bin\Debug\net5.0\BCrypt.Net-Next.dll
+C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\bin\Debug\net5.0\ProcessoSeletivo2RP_WebAPI.xml
+C:\Users\Murillo\Desktop\2rp\API\ProcessoSeletivo2RP_WebAPI\ProcessoSeletivo2RP_WebAPI\obj\Debug\net5.0\ProcessoSeletivo2RP_WebAPI.xml
