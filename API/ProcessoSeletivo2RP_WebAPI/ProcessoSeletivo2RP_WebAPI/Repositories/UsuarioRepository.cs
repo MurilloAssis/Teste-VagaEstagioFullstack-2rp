@@ -61,7 +61,9 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
 
         public void ExcluirUsuario(int idUsuario)
         {
-            throw new System.NotImplementedException();
+            Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            ctx.Usuarios.Remove(user);
+            ctx.SaveChanges();
         }
 
         public Usuario Login(string email, string senha)
