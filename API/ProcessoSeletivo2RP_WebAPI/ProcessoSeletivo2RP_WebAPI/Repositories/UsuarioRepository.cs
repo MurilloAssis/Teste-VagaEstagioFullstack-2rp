@@ -18,9 +18,14 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             throw new System.NotImplementedException();
         }
 
-        public void AlterarUsuario(Usuario novoUsuario, int idUsuario)
+        public void AlterarUsuario(UsuarioViewModel novoUsuario, int idUsuario)
         {
-            throw new System.NotImplementedException();
+            if (novoUsuario != null)
+            {
+                Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+
+
+            }
         }
 
         public Usuario BuscaUsuario(int idUsuario)
@@ -28,7 +33,7 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             throw new System.NotImplementedException();
         }
 
-        public void CadastrarUsuario(CadastroViewModel novoUsuario)
+        public void CadastrarUsuario(UsuarioViewModel novoUsuario)
         {
             if (novoUsuario.Nome != null && novoUsuario.Email != null && novoUsuario.Senha != null)
             {

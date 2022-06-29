@@ -1,6 +1,6 @@
 ﻿namespace ProcessoSeletivo2RP_WebAPI.ViewModels
 {
-    public class CadastroViewModel
+    public class UsuarioViewModel
     {
         public short? IdTipoUsuario { get; set; }
         public string Nome { get; set; }
