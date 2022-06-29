@@ -10,6 +10,6 @@ namespace ProcessoSeletivo2RP_WebAPI.Interfaces
         BuscarUserViewModel BuscaUsuario(int idUsuario);
         void AlterarUsuario(UsuarioViewModel novoUsuario, int idUsuario);
         bool ExcluirUsuario(int idUsuario);
-        void AlterarStatus(int idUsuario);
+        bool AlterarStatus(int idUsuario);
     }
 }

@@ -13,9 +13,25 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
         PSRPContext ctx = new PSRPContext();
-        public void AlterarStatus(int idUsuario)
+        public bool AlterarStatus(int idUsuario)
         {
-            throw new System.NotImplementedException();
+            Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if (user != null)
+            {              
+                switch (user.UserStatus)
+                {
+                    case true: user.UserStatus = false;
+                        ctx.Usuarios.Update(user);
+                        ctx.SaveChanges();
+                        break;
+                    case false: user.UserStatus = true;
+                        ctx.Usuarios.Update(user);
+                        ctx.SaveChanges();
+                        break;                   
+                }
+                return true;
+            }  
+            return false;
         }
 
         public void AlterarUsuario(UsuarioViewModel novoUsuario, int idUsuario)

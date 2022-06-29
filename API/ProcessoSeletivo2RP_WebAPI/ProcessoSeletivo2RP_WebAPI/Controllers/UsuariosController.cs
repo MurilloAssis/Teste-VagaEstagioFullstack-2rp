@@ -152,5 +152,23 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
                 Mensagem = "O id informado é inválido!"
             });
         }
+
+        [Authorize(Roles = "2, 3")]
+        [HttpPatch("AlterarStatus/id/{idUsuario:int}")]
+        public IActionResult AlterarStatus(int idUsuario)
+        {
+            if (idUsuario > 0)
+            {
+                _usuarioRepository.AlterarStatus(idUsuario);
+                return Ok(new
+                {
+                    Mensagem = "O status do usuário foi alterado!"
+                });
+            }
+            return BadRequest(new
+            {
+                Mensagem = "O id inserido é inválido"
+            });
+        }
     }
 }

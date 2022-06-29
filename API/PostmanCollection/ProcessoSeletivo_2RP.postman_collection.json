@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "f638492b-65ea-4729-94ca-9c4c1b9d96d1",
+		"name": "ProcessoSeletivo_2RP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login.UsuarioGeral",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"usergeral@email.com\",\r\n    \"senha\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login.UsuarioAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"useradmin@email.com\",\r\n    \"senha\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login.UsuarioRoot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"userroot@email.com\",\r\n    \"senha\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Usuarios.CadastrarUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJnZXJhbEBlbWFpbC5jb20iLCJqdGkiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMSIsInJvbGUiOiIxIiwiZXhwIjoxNjU2NDY3NTczLCJpc3MiOiJQUzJSUF9XZWJBUEkiLCJhdWQiOiJQUzJSUF9XZWJBUEkifQ.ZyvRyZRgvfvYxvxTqW3Z8-Z2MZ-cPLnmev9WU5DfPSU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoUsuario\": 1,\r\n  \"nome\": \"UserCadastro\",\r\n  \"email\": \"usercadastro@email.com\",\r\n  \"senha\": \"12345678\",\r\n  \"userStatus\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.AlterarUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJyb290QGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwicm9sZSI6IjMiLCJleHAiOjE2NTY0Njk4MjEsImlzcyI6IlBTMlJQX1dlYkFQSSIsImF1ZCI6IlBTMlJQX1dlYkFQSSJ9.IEFd1L2uJ0LpjOurhXGySNry4r7MOhZTymowV4OiILg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoUsuario\": 1,\r\n  \"nome\": \"UserGeral\",\r\n  \"email\": \"usergeral@email.com\",\r\n  \"senha\": \"12345678\",\r\n  \"userStatus\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios/Alterar/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios",
+								"Alterar",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.BuscarUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJyb290QGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwicm9sZSI6IjMiLCJleHAiOjE2NTY0Njk4MjEsImlzcyI6IlBTMlJQX1dlYkFQSSIsImF1ZCI6IlBTMlJQX1dlYkFQSSJ9.IEFd1L2uJ0LpjOurhXGySNry4r7MOhZTymowV4OiILg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoUsuario\": 1,\r\n  \"nome\": \"UserGeral\",\r\n  \"email\": \"usergeral@email.com\",\r\n  \"senha\": \"12345678\",\r\n  \"userStatus\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios/Buscar/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios",
+								"Buscar",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.ExcluirUsuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJyb290QGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwicm9sZSI6IjMiLCJleHAiOjE2NTY0Njk4MjEsImlzcyI6IlBTMlJQX1dlYkFQSSIsImF1ZCI6IlBTMlJQX1dlYkFQSSJ9.IEFd1L2uJ0LpjOurhXGySNry4r7MOhZTymowV4OiILg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idTipoUsuario\": 1,\r\n  \"nome\": \"UserGeral\",\r\n  \"email\": \"usergeral@email.com\",\r\n  \"senha\": \"12345678\",\r\n  \"userStatus\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios/Excluir/id/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios",
+								"Excluir",
+								"id",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios.AlterarStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJyb290QGVtYWlsLmNvbSIsImp0aSI6IjMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIzIiwicm9sZSI6IjMiLCJleHAiOjE2NTY0Njk4MjEsImlzcyI6IlBTMlJQX1dlYkFQSSIsImF1ZCI6IlBTMlJQX1dlYkFQSSJ9.IEFd1L2uJ0LpjOurhXGySNry4r7MOhZTymowV4OiILg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/Usuarios/AlterarStatus/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"Usuarios",
+								"AlterarStatus",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
