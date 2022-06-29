@@ -29,7 +29,11 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
 
         public void CadastrarUsuario(Usuario novoUsuario)
         {
-            throw new System.NotImplementedException();
+            if (novoUsuario.Nome != null && novoUsuario.Email != null && novoUsuario.Senha != null)
+            {
+                ctx.Usuarios.Add(novoUsuario);
+                ctx.SaveChanges();
+            }
         }
 
         public void ExcluirUsuario(int idUsuario)
