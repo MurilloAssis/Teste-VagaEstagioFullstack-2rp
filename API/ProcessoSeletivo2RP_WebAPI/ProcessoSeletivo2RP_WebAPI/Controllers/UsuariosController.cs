@@ -90,5 +90,67 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
                 });
             }
         }
+
+        [Authorize(Roles = "3")]
+        [HttpDelete("Excluir/id/{idUsuario:int}")]
+        public IActionResult ExcluirUsuario(int idUsuario)
+        {
+            if (idUsuario > 0)
+            {
+                if (_usuarioRepository.ExcluirUsuario(idUsuario))
+                {
+                    return StatusCode(204, new
+                    {
+                        Mensagem = "O usuário foi excluido do sistema com sucesso"
+                    });
+                }
+                return StatusCode(404, new
+                {
+                    Mensagem = "O id informado não corresponde a nenhum usuário"
+                });
+            }
+            return BadRequest(new
+            {
+                Mensagem = "O id informado é inválido"
+            });
+        }
+
+        [Authorize]
+        [HttpGet("Buscar/id/{idUsuario:int}")]
+        public IActionResult BuscarPorId(int idUsuario)
+        {
+            if (idUsuario > 0)
+            {
+                int idTipoUserLogado = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value);
+                int idLogado = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                if (idTipoUserLogado == 1)
+                {
+                    if (idLogado == idUsuario)
+                    {
+                        BuscarUserViewModel user = _usuarioRepository.BuscaUsuario(idUsuario);
+                        return Ok(user);
+                    }
+
+                    return StatusCode(403, new
+                    {
+                        Mensagem = "Você não possui autorização para buscar esse usuário"
+                    });
+                }
+
+                BuscarUserViewModel usuario = _usuarioRepository.BuscaUsuario(idUsuario);
+                if (usuario == null) return NotFound(new
+                {
+                    Mensagem = "Não há nenhum usuário no sistema com o id informado"
+                });
+
+                return Ok(usuario);
+            }
+
+            return BadRequest(new
+            {
+                Mensagem = "O id informado é inválido!"
+            });
+        }
     }
 }

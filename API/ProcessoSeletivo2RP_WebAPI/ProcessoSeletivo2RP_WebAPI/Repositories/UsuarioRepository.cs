@@ -36,9 +36,16 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             }
         }
 
-        public Usuario BuscaUsuario(int idUsuario)
+        public BuscarUserViewModel BuscaUsuario(int idUsuario)
         {
-            throw new System.NotImplementedException();
+            Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+
+            BuscarUserViewModel userView = new BuscarUserViewModel();
+            userView.Email = user.Email;
+            userView.Nome = user.Nome;
+            userView.UserStatus = user.UserStatus;
+            userView.Nome = user.Nome;
+            return userView;
         }
 
         public void CadastrarUsuario(UsuarioViewModel novoUsuario)
@@ -59,11 +66,14 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             }
         }
 
-        public void ExcluirUsuario(int idUsuario)
+        public bool ExcluirUsuario(int idUsuario)
         {
             Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+            if (user == null) return false;
+
             ctx.Usuarios.Remove(user);
             ctx.SaveChanges();
+            return true;
         }
 
         public Usuario Login(string email, string senha)

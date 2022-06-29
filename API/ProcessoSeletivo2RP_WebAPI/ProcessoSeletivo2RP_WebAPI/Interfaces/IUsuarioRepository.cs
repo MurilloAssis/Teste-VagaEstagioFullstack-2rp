@@ -7,9 +7,9 @@ namespace ProcessoSeletivo2RP_WebAPI.Interfaces
     {
         void CadastrarUsuario(UsuarioViewModel novoUsuario);
         Usuario Login(string email, string senha);
-        Usuario BuscaUsuario(int idUsuario);
+        BuscarUserViewModel BuscaUsuario(int idUsuario);
         void AlterarUsuario(UsuarioViewModel novoUsuario, int idUsuario);
-        void ExcluirUsuario(int idUsuario);
+        bool ExcluirUsuario(int idUsuario);
         void AlterarStatus(int idUsuario);
     }
 }
