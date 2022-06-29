@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +25,7 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
 
         [Authorize(Roles = "2, 3")]
         [HttpPost]
-        public IActionResult CadastrarUsuario(CadastroViewModel novoUsuario)
+        public IActionResult CadastrarUsuario(UsuarioViewModel novoUsuario)
         {
             try
             {
@@ -45,6 +48,47 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
                 throw;
             }
             
+        }
+
+        [Authorize]
+        [HttpPut("Alterar/id/{idUsuario:int}")]
+        public IActionResult AlterarUsuario(UsuarioViewModel novoUsuario, int idUsuario)
+        {
+            int idTipoUserLogado = Convert.ToInt32(HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value);
+            if (novoUsuario == null)
+            {
+                return BadRequest(new
+                {
+                    Mensagem = "Informações inseridas estão inválidas"
+                });
+            }
+
+            if (idTipoUserLogado == 1)
+            {
+                int id = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+
+                if (id == idUsuario)
+                {
+                    _usuarioRepository.AlterarUsuario(novoUsuario, idUsuario);
+                    return Ok(new
+                    {
+                        Mensagem = "Usuário alterado com sucesso!"
+                    });
+                }
+
+                return StatusCode(403, new
+                {
+                    Mensagem = "Você não tem autorização para fazer alterações no perfil indicado"
+                });
+            }
+            else
+            {
+                _usuarioRepository.AlterarUsuario(novoUsuario, idUsuario);
+                return Ok(new
+                {
+                    Mensagem = "Usuário alterado com sucesso!"
+                });
+            }
         }
     }
 }

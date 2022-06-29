@@ -23,8 +23,16 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             if (novoUsuario != null)
             {
                 Usuario user = ctx.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
+                string senhaHash = Criptografia.gerarHash(novoUsuario.Senha);
 
+                user.Email = novoUsuario.Email; 
+                user.Senha = senhaHash;
+                user.Nome = novoUsuario.Nome;
+                user.UserStatus = novoUsuario.UserStatus;
+                user.IdTipoUsuario = novoUsuario.IdTipoUsuario;
 
+                ctx.Usuarios.Update(user);
+                ctx.SaveChanges();
             }
         }
 
