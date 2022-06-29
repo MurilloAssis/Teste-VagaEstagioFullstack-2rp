@@ -2,6 +2,7 @@
 using ProcessoSeletivo2RP_WebAPI.Domains;
 using ProcessoSeletivo2RP_WebAPI.Interfaces;
 using ProcessoSeletivo2RP_WebAPI.Utils;
+using ProcessoSeletivo2RP_WebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +28,20 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             throw new System.NotImplementedException();
         }
 
-        public void CadastrarUsuario(Usuario novoUsuario)
+        public void CadastrarUsuario(CadastroViewModel novoUsuario)
         {
             if (novoUsuario.Nome != null && novoUsuario.Email != null && novoUsuario.Senha != null)
             {
                 string senhaHash = Criptografia.gerarHash(novoUsuario.Senha);
-                novoUsuario.Senha = senhaHash;
-                ctx.Usuarios.Add(novoUsuario);
+
+                Usuario user = new Usuario();
+                user.Nome = novoUsuario.Nome;
+                user.Email = novoUsuario.Email;
+                user.Senha = senhaHash;
+                user.IdTipoUsuario = novoUsuario.IdTipoUsuario;
+                user.UserStatus = novoUsuario.UserStatus;
+            
+                ctx.Usuarios.Add(user);
                 ctx.SaveChanges();
             }
         }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProcessoSeletivo2RP_WebAPI.Domains;
 using ProcessoSeletivo2RP_WebAPI.Interfaces;
+using ProcessoSeletivo2RP_WebAPI.ViewModels;
 
 namespace ProcessoSeletivo2RP_WebAPI.Controllers
 {
@@ -21,7 +22,7 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
 
         [Authorize(Roles = "2, 3")]
         [HttpPost]
-        public IActionResult CadastrarUsuario(Usuario novoUsuario)
+        public IActionResult CadastrarUsuario(CadastroViewModel novoUsuario)
         {
             try
             {
@@ -30,7 +31,7 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
                     _usuarioRepository.CadastrarUsuario(novoUsuario);
                     return StatusCode(201, new
                     {
-                        Mensagem = $"Novo usuário cadastrado: {novoUsuario}"
+                        Mensagem = $"Novo usuário cadastrado: {novoUsuario.Nome}"
                     });
                 }
                 return BadRequest(new
