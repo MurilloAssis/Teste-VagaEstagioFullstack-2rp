@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import './index.css';
 import Login from './Pages/Login/Login.jsx';
+import Geral from './Pages/Geral/Geral.jsx';
 import reportWebVitals from './reportWebVitals';
 
 const routing = (
@@ -15,6 +16,7 @@ const routing = (
       <div>
         <Switch>
           <Route exact path="/" component={Login}/>
+          <Route path="/geral" component={Geral}/>
         </Switch>
       </div>
   </Router>

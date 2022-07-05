@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box;
+    overflow-y: auto; */
+}
+
+
+
+/* Header */
+.header {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #18233D;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.logo {
+    width: 150px;
+    height: 50px;
+}
+
+.container_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_header button{
+    border: none;
+    background-color: unset;
+    font-family: 'Exo', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+.container_header button:hover {
+    color: rgb(223, 178, 0);
+    scale: 1.0;
+    transition: all .2s ease-in-out;
+    font-weight: 600;
+}
+
+.DisableBtn{
+    display: none;
+}
+
+/* Fim Header */
+
+
+.body-login {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    /* background-color: burlywood; */
+}
+
+.container-login {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ImgLogin {
+    width: 500px;
+    height: 353px;
+}
+
+.box-login {
+    width: 480px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box-login h1 {
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 37px;
+    line-height: 57px;
+
+    color: #18233D;
+    margin-bottom: 1rem;
+}
+
+.Input {
+    position: relative;
+    padding-top: 13px;
+    width: 407px;
+}
+    
+.Input input {
+border: 2px solid #3475BB;
+border-radius:15px;
+outline: none;
+min-width: 250px;
+width: 100%;
+padding: 15px 20px;
+font-size: 16px;
+transition: all .1s linear;
+-webkit-transition: all .1s linear;
+-moz-transition: all .1s linear;
+-webkit-appearance: none;
+}
+    
+    
+    
+.Input input::placeholder {
+color: transparent;
+}
+
+.Input label {
+pointer-events: none;
+position: absolute;
+top: calc(50% - 9px);
+left: 15px;
+transition: all .1s linear;
+-webkit-transition: all .1s linear;
+-moz-transition: all .1s linear;
+background-color: white;
+padding: 5px;
+box-sizing: border-box;
+}
+
+.Input input:required:invalid+label {
+color: #3375BA;
+}
+
+.Input input:focus:required:invalid {
+border: 2px solid #3375BA;
+}
+
+.Input input:required:invalid+label:before {
+content: '*';
+}
+
+.Input input:focus+label,
+.Input input:not(:placeholder-shown)+label {
+font-size: 13px;
+top: 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.FormLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 300px;
+}
+
+.SubmitLogin {
+    width: 100%;
+    height: 50px;
+    margin-top: 13px;
+    border: none;
+    font-family: 'Exo';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    color: #FFFFFF;
+    background: #3375BA;
+    border-radius: 20px;
+}

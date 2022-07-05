@@ -1,0 +1,24 @@
+.Input select {
+    border: 2px solid #3475BB;
+    border-radius:15px;
+    outline: none;
+    min-width: 250px;
+    width: calc(100% + 43px);
+    padding: 15px 20px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.SubmitAlter{
+    width: 451px !important
+}
+
+.mainGeral{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 90px);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+       

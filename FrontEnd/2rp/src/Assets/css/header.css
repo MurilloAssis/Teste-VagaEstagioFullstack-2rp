@@ -1,0 +1,59 @@
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #18233D;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.logo {
+    width: 150px;
+    height: 50px;
+}
+
+.container_header_Comp {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.container_header button{
+    border: none;
+    font-family: 'Exo', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.container_header button:hover {
+    scale: 1.3;
+    transition: all .2s ease-in-out;
+    font-weight: 600;
+}
+
+.container_header p{
+    border: none;
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+
+}
+
+
+
+.DisableBtn{
+    display: none;
+}
+
+.navHeader{
+    display: flex;
+}
