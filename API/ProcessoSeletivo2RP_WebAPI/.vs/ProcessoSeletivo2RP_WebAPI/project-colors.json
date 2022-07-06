@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a93b598d-4f56-4825-a945-6c2a6917d0da": {
+      "ProjectGuid": "a93b598d-4f56-4825-a945-6c2a6917d0da",
+      "DisplayName": "ProcessoSeletivo2RP_WebAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

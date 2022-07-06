@@ -92,6 +92,20 @@ namespace ProcessoSeletivo2RP_WebAPI.Repositories
             return true;
         }
 
+        public List<BuscarUserViewModel> ListarUsers()
+        {
+            var lista = from usuarios in ctx.Usuarios
+                        select new BuscarUserViewModel
+                        {
+                            IdUsuario = usuarios.IdUsuario,
+                            IdTipoUsuario = usuarios.IdTipoUsuario,
+                            Nome = usuarios.Nome,
+                            Email = usuarios.Email,
+                            UserStatus = usuarios.UserStatus
+                        };
+            return lista.ToList();
+        }
+
         public Usuario Login(string email, string senha)
         {
             Usuario usuario = ctx.Usuarios.FirstOrDefault(u => u.Email == email);

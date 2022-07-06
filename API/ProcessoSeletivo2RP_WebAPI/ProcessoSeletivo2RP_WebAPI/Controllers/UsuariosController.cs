@@ -154,6 +154,19 @@ namespace ProcessoSeletivo2RP_WebAPI.Controllers
         }
 
         [Authorize(Roles = "2, 3")]
+        [HttpGet("ListarTodos")]
+        public IActionResult ListarTodos()
+        {
+            var lista = _usuarioRepository.ListarUsers();
+
+            if (lista != null)
+            {
+                return Ok(lista);
+            }
+            return NoContent();
+        }
+
+        [Authorize(Roles = "2, 3")]
         [HttpPatch("AlterarStatus/id/{idUsuario:int}")]
         public IActionResult AlterarStatus(int idUsuario)
         {
