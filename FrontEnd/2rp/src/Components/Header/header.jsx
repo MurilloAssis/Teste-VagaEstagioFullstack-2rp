@@ -37,11 +37,6 @@ export default function Header() {
                         {
                             usuarioAutenticado() ? <Link to="/"><button onClick={() => localStorage.clear()} >Logout</button></Link> : <Link to="/login"><button>Login</button></Link>
                         }
-                        {
-                            localStorage.getItem('usuario-token') !== null && 
-                             (parseJwt().role === '2' || parseJwt().role === '3' ) ?
-                            <Link to="/cadastroUsuario"><button>Cadastrar</button></Link> : <button></button>                          
-                        }
 
                     </div>
                 </div>

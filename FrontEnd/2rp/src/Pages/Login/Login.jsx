@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import api from '../../services/api'
 import { useHistory } from 'react-router-dom'
-import Header from '../../Components/Header/header'
 import logo from '../../Assets/img/logo2RP.png'
+import { ToastContainer, toast } from 'react-toast'
 import './Login.css'
 import { parseJwt } from '../../services/auth'
 
@@ -38,12 +37,17 @@ export default function Login() {
             })
             .catch(resposta => {
                 console.log(resposta);
+                toast.error('O email ou senha são inválidos!')
                 setIsLoading(false);
             })
     }
 
     return (
         <div>
+            <ToastContainer
+                position='top-right'
+                delay={5000}
+            />
             <header className='header'>
                 <div className="container container_header">
                     <img className='logo' src={logo}></img>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer, toast } from 'react-toast'
 import Header from "../../Components/Header/header"
 import api from "../../services/api"
 import { parseJwt } from "../../services/auth"
@@ -12,9 +12,7 @@ export default function Geral() {
     const [userStatus, setUserStatus] = useState(false)
     const [isLoading, setisLoading] = useState(false)
 
-    const sucesso = () => toast.success("Informações alteradas com sucesso!")
-    const error = () => toast.error("Algo deu errado! Tente novamente.")
-    const required = () => toast.error("Todos os campos são obrigatórios")
+ 
 
     const buscarUsuario = () => {
 
@@ -53,11 +51,12 @@ export default function Geral() {
         })
             .then(resposta => {
                 if (resposta.status === 200) {
-                    
+                    setisLoading(false)
+                    toast.success('O usuário foi alterado com sucesso!')
                 }
             })
             .catch(
-                
+                toast.error('Algo deu errado, tente novamente!')
             )
     }
 
@@ -68,10 +67,13 @@ export default function Geral() {
     return (
         <div>
             <Header />
-            
+            <ToastContainer
+                position='top-right'
+                delay={5000}
+            />
             <main className="mainGeral">
                 <h1>Vizualizar e Alterar Informações</h1>
-                <form onSubmit={(e) => AlterarUsuario(e)}>
+                <form className="form" onSubmit={(e) => AlterarUsuario(e)}>
                     <div className='Input'>
                         <input
                             type="text"
