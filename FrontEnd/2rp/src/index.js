@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client'
 import {
   Route,
   BrowserRouter as Router,
@@ -9,6 +9,7 @@ import {
 import './index.css';
 import Login from './Pages/Login/Login.jsx';
 import Geral from './Pages/Geral/Geral.jsx';
+import AdminRoot from './Pages/AdminRoot/AdminRoot.jsx';
 import reportWebVitals from './reportWebVitals';
 
 const routing = (
@@ -17,15 +18,15 @@ const routing = (
         <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/geral" component={Geral}/>
+          <Route path="/admin" component={AdminRoot}/>
         </Switch>
       </div>
   </Router>
 )
 
-ReactDOM.render(
-  routing,
-  document.getElementById('root')
-);
+const root = createRoot(document.getElementById('root'))
+
+root.render(routing);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

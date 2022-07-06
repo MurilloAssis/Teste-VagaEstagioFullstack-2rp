@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ToastContainer, toast } from "react-toastify"
 import Header from "../../Components/Header/header"
 import api from "../../services/api"
 import { parseJwt } from "../../services/auth"
@@ -11,6 +12,9 @@ export default function Geral() {
     const [userStatus, setUserStatus] = useState(false)
     const [isLoading, setisLoading] = useState(false)
 
+    const sucesso = () => toast.success("Informações alteradas com sucesso!")
+    const error = () => toast.error("Algo deu errado! Tente novamente.")
+    const required = () => toast.error("Todos os campos são obrigatórios")
 
     const buscarUsuario = () => {
 
@@ -34,23 +38,27 @@ export default function Geral() {
     const AlterarUsuario = (event) => {
         event.preventDefault();
         setisLoading(true);
+      
 
-        api.put('/Usuarios/Alterar/id/' + parseJwt().jti,{
+        api.put('/Usuarios/Alterar/id/' + parseJwt().jti, {
             idTipoUsuario: parseJwt().role,
-            nome : nomeUser,
-            email : emailUser,
-            senha : senhaUser,
-            userStatus : userStatus
+            nome: nomeUser,
+            email: emailUser,
+            senha: senhaUser,
+            userStatus: userStatus
         }, {
-            headers:{
-                Authorization : 'Bearer ' + localStorage.getItem('usuario-token')
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('usuario-token')
             }
         })
-        .then(resposta => {
-            if(resposta.status === 200){
-                console.log('katiau')
-            }
-        })
+            .then(resposta => {
+                if (resposta.status === 200) {
+                    
+                }
+            })
+            .catch(
+                
+            )
     }
 
     useEffect(
@@ -60,9 +68,10 @@ export default function Geral() {
     return (
         <div>
             <Header />
+            
             <main className="mainGeral">
-            <h1>Alterar Informações</h1>
-              <form onSubmit={(e) => AlterarUsuario(e)}>
+                <h1>Vizualizar e Alterar Informações</h1>
+                <form onSubmit={(e) => AlterarUsuario(e)}>
                     <div className='Input'>
                         <input
                             type="text"
@@ -71,7 +80,7 @@ export default function Geral() {
                             onChange={(e) => setNomeUser(e.target.value)}
                             placeholder='Nome'
                         ></input>
-                        <label for="name">Nome</label>
+                        <label htmlFor="name">Nome</label>
                     </div>
 
                     <div className='Input'>
@@ -82,16 +91,16 @@ export default function Geral() {
                             onChange={(e) => setEmailUser(e.target.value)}
                             placeholder='Nome'
                         ></input>
-                        <label for="name">Email</label>
+                        <label htmlFor="name">Email</label>
                     </div>
 
                     <div className='Input' name="status">
                         <select onChange={(e) => setUserStatus(e.target.value)}>
-                            <option value="">Selecione o status do usuário</option>
+                            <option value={undefined}>Selecione o status do usuário</option>
                             <option value={true}>Ativo</option>
                             <option value={false}>Inativo</option>
                         </select>
-                        
+
                     </div>
 
                     <div className='Input'>
@@ -102,7 +111,7 @@ export default function Geral() {
                             onChange={(e) => setSenhaUser(e.target.value)}
                             placeholder='senha'
                         ></input>
-                        <label for="name">Senha</label>
+                        <label htmlFor="name">Senha</label>
                     </div>
 
                     {

@@ -111,7 +111,7 @@
 }
     
 .Input input {
-border: 2px solid #3475BB;
+border: 2px solid #18233D;
 border-radius:15px;
 outline: none;
 min-width: 250px;
@@ -144,11 +144,11 @@ box-sizing: border-box;
 }
 
 .Input input:required:invalid+label {
-color: #3375BA;
+color: #18233D;
 }
 
 .Input input:focus:required:invalid {
-border: 2px solid #3375BA;
+border: 2px solid #18233D;
 }
 
 .Input input:required:invalid+label:before {
@@ -191,6 +191,6 @@ top: 0;
     font-weight: 600;
     font-size: 22px;
     color: #FFFFFF;
-    background: #3375BA;
+    background: #18233D;
     border-radius: 20px;
 }

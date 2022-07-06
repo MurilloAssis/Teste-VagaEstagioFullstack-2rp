@@ -31,6 +31,9 @@ export default function Login() {
                     if(parseJwt().role === '1'){
                         history.push('/geral')
                     }
+                    else{
+                        history.push('/admin')
+                    }
                 }
             })
             .catch(resposta => {
@@ -77,7 +80,7 @@ export default function Login() {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                     ></input>
-                                    <label for="Email">Email</label>
+                                    <label htmlFor="Email">Email</label>
                                 </div>
 
                                 <div className='Input'>
@@ -89,7 +92,7 @@ export default function Login() {
                                         onChange={(e) => setSenha(e.target.value)}
                                         placeholder='Digite sua senha'
                                     ></input>
-                                    <label for="password">Senha</label>
+                                    <label htmlFor="password">Senha</label>
                                 </div>
 
                                 {
